@@ -35,7 +35,7 @@ with open(file_path, newline='') as csvfile:
 
         previous_profit = profit_loss
 
-average_change = sum(changes) / len(changes) if changes else 0
+average_change = sum(changes) / len(changes) 
 
 results = []
 results.append("analysis")
@@ -47,11 +47,6 @@ results.append(f"Greatest Increase in Profits: {greatest_increase[0]} (${greates
 results.append(f"Greatest Decrease in Profits: {greatest_decrease[0]} (${greatest_decrease[1]:,.2f})")
 
 
-
-# Write the results to a file
-with open('analysis/results.txt', 'w') as textfile:
-    for line in results:
-        textfile.write(line + '\n')
 
 
 for line in results:
