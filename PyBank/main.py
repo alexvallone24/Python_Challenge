@@ -1,6 +1,8 @@
+# Import file
 import os
 import csv
 
+# Set variables up
 total_months = 0
 net_total = 0
 previous_profit = 0
@@ -9,13 +11,14 @@ months = []
 greatest_increase = ("", 0)
 greatest_decrease = ("", 0)
 
-
+# Set file path and read csv 
 file_path = "C:/Users/vallo/Desktop/Homework/Python_Challenge/PyBank/Resources/budget_data.csv"
 
 with open(file_path, newline='') as csvfile:
     csvreader = csv.reader(csvfile)
     header = next(csvreader)
 
+# Calculate total months and net total
     for row in csvreader:
         total_months += 1
         date = row[0]
@@ -27,6 +30,7 @@ with open(file_path, newline='') as csvfile:
             changes.append(change)
             months.append(date)
 
+# Calculate greatest increase and decrease in profits
             if change > greatest_increase[1]:
                 greatest_increase = (date,change)
             
@@ -35,8 +39,10 @@ with open(file_path, newline='') as csvfile:
 
         previous_profit = profit_loss
 
+# Calculate average change
 average_change = sum(changes) / len(changes) 
 
+# Set up results list
 results = []
 results.append("analysis")
 results.append("----------------------")
@@ -48,7 +54,7 @@ results.append(f"Greatest Decrease in Profits: {greatest_decrease[0]} (${greates
 
 
 
-
+# Print and set file location for results
 for line in results:
     print(line)
 
